@@ -1,0 +1,102 @@
+name = mejdoubi
+description = Profil d'installation avec modules de base
+version = VERSION
+core = 7.x
+
+;Module du core de Drupal
+dependencies[] = block
+dependencies[] = user
+dependencies[] = system
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = locale
+dependencies[] = path
+dependencies[] = php
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = simpletest
+dependencies[] = trigger
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = field_sql_storage
+dependencies[] = syslog
+dependencies[] = translation
+dependencies[] = field
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = rdf
+
+;contrib
+dependencies[] = libraries
+dependencies[] = ctools
+dependencies[] = views
+dependencies[] = views_uidependencies[] = views_bulk_operations
+dependencies[] = pathauto
+dependencies[] = entity
+dependencies[] = token
+dependencies[] = date
+dependencies[] = metatag
+dependencies[] = xmlsitemap
+
+;Important
+dependencies[] = lightbox2
+dependencies[] = field_group
+dependencies[] = captcha
+dependencies[] = views_slideshow
+dependencies[] = ckeditor
+dependencies[] = wysiwyg
+dependencies[] = googleanalytics
+dependencies[] = menuux
+dependencies[] = imce
+
+;Interessant
+dependencies[] = me
+dependencies[] = views_php
+
+;Multiligue
+dependencies[] = l10n_update
+dependencies[] = l10n_client
+dependencies[] = i18n
+dependencies[] = i18n_string
+dependencies[] = i18n_translation
+dependencies[] = i18n_block
+dependencies[] = i18n_field
+dependencies[] = i18n_menu
+dependencies[] = i18n_node
+dependencies[] = i18n_path
+dependencies[] = i18n_sync
+dependencies[] = i18n_taxonomy
+dependencies[] = i18n_variable
+;Champs & Widgets
+dependencies[] = link
+dependencies[] = addressfield
+dependencies[] = hierarchical_select
+dependencies[] = relation
+
+;Developpement
+dependencies[] = admin_menu
+dependencies[] = admin_devel
+dependencies[] = admin_toolbar
+
+dependencies[] = features
+dependencies[] = rules
+dependencies[] = block_class
+dependencies[] = css3pie
+dependencies[] = devel
+dependencies[] = search_krumo
+dependencies[] = devel_themer
+dependencies[] = backup_migrate
+dependencies[] = css_watch
+dependencies[] = module_filter
+dependencies[] = coffee
+dependencies[] = submitted_by
+;themes
