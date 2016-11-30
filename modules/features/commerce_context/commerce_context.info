@@ -1,0 +1,29 @@
+name = Commerce context
+core = 7.x
+package = Features
+dependencies[] = block
+dependencies[] = commerce_cart
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = delta_blocks
+dependencies[] = logintoboggan
+dependencies[] = search
+dependencies[] = simplenews
+dependencies[] = views
+dependencies[] = webform
+features[context][] = categores_page
+features[context][] = categories_display
+features[context][] = common
+features[context][] = front_page
+features[context][] = main
+features[context][] = product_page
+features[context][] = tags_display
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

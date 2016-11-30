@@ -1,0 +1,38 @@
+; commerce_profile make file for local development
+core = "7.x"
+api = "2"
+
+projects[drupal][version] = "7.x"
+; include the d.o. profile base
+includes[] = "drupal-org.make"
+
+; +++++ Libraries +++++
+
+; jcarousel
+libraries[jcarousel][directory_name] = "jcarousel"
+libraries[jcarousel][type] = "library"
+libraries[jcarousel][destination] = "libraries"
+libraries[jcarousel][download][type] = "get"
+libraries[jcarousel][download][url] = "" ; TODO add download URI
+
+; owl-carousel
+libraries[owl-carousel][directory_name] = "owl-carousel"
+libraries[owl-carousel][type] = "library"
+libraries[owl-carousel][destination] = "libraries"
+libraries[owl-carousel][download][type] = "get"
+libraries[owl-carousel][download][url] = "" ; TODO add download URI
+
+; Mobile_Detect
+libraries[Mobile_Detect][directory_name] = "Mobile_Detect"
+libraries[Mobile_Detect][type] = "library"
+libraries[Mobile_Detect][destination] = "libraries"
+libraries[Mobile_Detect][download][type] = "get"
+libraries[Mobile_Detect][download][url] = "" ; TODO add download URI
+
+; jquery.cycle
+libraries[jquery.cycle][directory_name] = "jquery.cycle"
+libraries[jquery.cycle][type] = "library"
+libraries[jquery.cycle][destination] = "libraries"
+libraries[jquery.cycle][download][type] = "get"
+libraries[jquery.cycle][download][url] = "" ; TODO add download URI
+

@@ -1,0 +1,24 @@
+name = Dummy commerce products
+description = Add a few dummy commerce products.
+core = 7.x
+package = Custom
+
+dependencies[] = entity
+dependencies[] = commerce
+dependencies[] = commerce_price
+dependencies[] = commerce_product_pricing
+dependencies[] = commerce_product_reference
+dependencies[] = commerce_product
+dependencies[] = commerce_pdm
+dependencies[] = file
+dependencies[] = user
+dependencies[] = custom_taxonomy
+dependencies[] = content_types
+dependencies[] = commerce_product_type
+dependencies[] = variable_settings
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

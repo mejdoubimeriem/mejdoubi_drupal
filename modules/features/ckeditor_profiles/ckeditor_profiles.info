@@ -1,0 +1,16 @@
+name = CKEditor profiles
+core = 7.x
+package = Features
+dependencies[] = ckeditor
+dependencies[] = text_formats
+features[ckeditor_profile][] = Advanced
+features[ckeditor_profile][] = CKEditor Global Profile
+features[ckeditor_profile][] = Full
+features[features_api][] = api:2
+
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

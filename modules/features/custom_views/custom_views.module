@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Custom views feature.
+ */
+
+include_once 'custom_views.features.inc';

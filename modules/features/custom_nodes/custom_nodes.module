@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Custom nodes feature.
+ */
+
+include_once 'custom_nodes.features.inc';

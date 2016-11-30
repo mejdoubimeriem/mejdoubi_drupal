@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the variable_settings feature.
+ */
+
+include_once 'variable_settings.features.inc';

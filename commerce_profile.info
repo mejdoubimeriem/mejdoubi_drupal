@@ -1,0 +1,171 @@
+; Packaging information for commerce_profile
+name = Commerce Profile
+description = "Commerce Profile. Created by ADCI Solutions."
+core = "7.x"
+; ----------
+; Dependencies
+; ----------
+; Administration
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+dependencies[] = module_filter
+; Chaos tool suite
+dependencies[] = ctools
+; Commerce
+dependencies[] = commerce
+dependencies[] = commerce_cart
+dependencies[] = commerce_checkout
+dependencies[] = commerce_checkout_redirect
+dependencies[] = commerce_customer
+dependencies[] = commerce_customer_ui
+dependencies[] = commerce_line_item
+dependencies[] = commerce_line_item_ui
+dependencies[] = commerce_order
+dependencies[] = commerce_order_ui
+dependencies[] = commerce_payment
+dependencies[] = commerce_payment_example
+dependencies[] = commerce_payment_ui
+dependencies[] = commerce_price
+dependencies[] = commerce_product
+dependencies[] = commerce_product_pricing
+dependencies[] = commerce_product_pricing_ui
+dependencies[] = commerce_product_reference
+dependencies[] = commerce_product_ui
+dependencies[] = commerce_ui
+; Commerce (PayPal)
+dependencies[] = commerce_paypal
+dependencies[] = commerce_paypal_wps
+; Commerce (contrib)
+dependencies[] = commerce_autosku
+dependencies[] = commerce_feeds
+dependencies[] = commerce_pdm
+; Context
+dependencies[] = context
+dependencies[] = context_ui
+; Core
+dependencies[] = block
+dependencies[] = blog
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = dblog
+dependencies[] = field
+dependencies[] = field_sql_storage
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = filter
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = node
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = pathauto
+dependencies[] = rdf
+dependencies[] = search
+dependencies[] = system
+dependencies[] = taxonomy
+dependencies[] = text
+dependencies[] = update
+dependencies[] = user
+; Custom
+dependencies[] = commerce_profile_common
+; Features extra
+dependencies[] = fe_block
+; Feeds
+dependencies[] = feeds
+dependencies[] = feeds_ui
+; Fields
+dependencies[] = addressfield
+; Form Elements
+dependencies[] = hierarchical_select
+dependencies[] = hs_menu
+dependencies[] = hs_smallhierarchy
+dependencies[] = hs_taxonomy
+; Mail
+dependencies[] = simplenews
+; Mobile Detect
+dependencies[] = mobile_detect
+dependencies[] = mobile_detect_variables
+; Node export
+dependencies[] = node_export
+dependencies[] = node_export_dependency
+dependencies[] = node_export_features
+dependencies[] = node_export_feeds
+dependencies[] = node_export_relation
+; Other
+dependencies[] = backup_migrate
+dependencies[] = better_formats
+dependencies[] = block_class
+dependencies[] = entity
+dependencies[] = entity_token
+dependencies[] = image_url_formatter
+dependencies[] = job_scheduler
+dependencies[] = libraries
+dependencies[] = logintoboggan
+dependencies[] = quicktabs
+dependencies[] = strongarm
+dependencies[] = taxonomy_display
+dependencies[] = token
+; Owl Carousel
+dependencies[] = owlcarousel
+dependencies[] = owlcarousel_fields
+dependencies[] = owlcarousel_ui
+dependencies[] = owlcarousel_views
+; Rules
+dependencies[] = rules
+dependencies[] = rules_admin
+; Theme Tools
+dependencies[] = delta
+dependencies[] = delta_blocks
+dependencies[] = delta_ui
+; UUID
+dependencies[] = uuid
+; User interface
+dependencies[] = ckeditor
+dependencies[] = jcarousel
+dependencies[] = jquery_update
+; Variable
+dependencies[] = variable
+; Views
+dependencies[] = views
+dependencies[] = views_data_export
+dependencies[] = views_field_view
+dependencies[] = views_slideshow
+dependencies[] = views_slideshow_cycle
+dependencies[] = views_tree
+dependencies[] = views_ui
+; Voting
+dependencies[] = fivestar
+dependencies[] = votingapi
+; Webform
+dependencies[] = webform
+; XML sitemap
+dependencies[] = xmlsitemap
+; Features
+dependencies[] = features
+dependencies[] = commerce_features
+dependencies[] = feeds_import
+dependencies[] = feeds_news
+dependencies[] = uuid_features
+
+dependencies[] = variable_settings
+dependencies[] = commerce_product_type
+dependencies[] = content_types
+dependencies[] = commerce_profile_products
+dependencies[] = custom_permissions
+dependencies[] = custom_taxonomy
+dependencies[] = hs_configs
+dependencies[] = image_styles
+dependencies[] = nodes_with_pictures
+dependencies[] = text_formats
+dependencies[] = ckeditor_profiles
+dependencies[] = commerce_context
+dependencies[] = custom_views
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

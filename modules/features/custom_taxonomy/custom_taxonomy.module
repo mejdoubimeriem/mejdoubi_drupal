@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Custom taxonomy feature.
+ */
+
+include_once 'custom_taxonomy.features.inc';

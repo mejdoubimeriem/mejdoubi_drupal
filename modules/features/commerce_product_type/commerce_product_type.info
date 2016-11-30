@@ -1,0 +1,30 @@
+name = Commerce product type
+core = 7.x
+package = Features
+dependencies[] = commerce_features
+dependencies[] = commerce_price
+dependencies[] = commerce_product_ui
+dependencies[] = features
+dependencies[] = fivestar
+dependencies[] = image
+dependencies[] = text
+dependencies[] = text_formats
+features[commerce_product_type][] = product
+features[features_api][] = api:2
+features[field_base][] = commerce_price
+features[field_base][] = field_description
+features[field_base][] = field_rating
+features[field_base][] = field_specifications
+features[field_base][] = field_view
+features[field_instance][] = commerce_product-product-commerce_price
+features[field_instance][] = commerce_product-product-field_description
+features[field_instance][] = commerce_product-product-field_rating
+features[field_instance][] = commerce_product-product-field_specifications
+features[field_instance][] = commerce_product-product-field_view
+
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

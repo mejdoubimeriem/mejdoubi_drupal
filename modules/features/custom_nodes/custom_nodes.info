@@ -1,0 +1,35 @@
+name = Custom nodes
+core = 7.x
+package = Features
+dependencies[] = ckeditor
+dependencies[] = entity
+dependencies[] = features
+dependencies[] = content_types
+dependencies[] = node_export_features
+dependencies[] = path
+dependencies[] = pathauto
+dependencies[] = simplenews
+dependencies[] = text
+dependencies[] = webform
+dependencies[] = variable_settings
+features[features_api][] = api:2
+features[field_base][] = body
+features[field_instance][] = node-important_information-body
+features[field_instance][] = node-page-body
+features[node][] = important_information
+features[node][] = page
+features[node][] = webform
+features[node_export_features][] = 6c2f08df-c4fa-4f0e-b456-203b47c2340d
+features[node_export_features][] = 7e348e72-cebb-4263-997f-ecd65ece9a4b
+features[node_export_features][] = b33da1cb-a9d6-42ad-8512-22db414a0876
+features[node_export_features][] = b9a67a35-4bed-4202-8bee-0cf00523d98b
+features[node_export_features][] = bec41ff1-467a-43fa-a3e2-232f15437690
+features[node_export_features][] = f269693d-bf00-4551-952c-609b3c91e3e8
+features_exclude[dependencies][node_export_features] = node_export_features
+
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

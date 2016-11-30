@@ -1,0 +1,23 @@
+name = Image styles
+core = 7.x
+package = Features
+dependencies[] = image
+dependencies[] = imagecache_actions
+dependencies[] = imagecache_autorotate
+dependencies[] = imagecache_canvasactions
+dependencies[] = imagecache_coloractions
+dependencies[] = imagecache_customactions
+features[features_api][] = api:2
+features[image][] = 140_150
+features[image][] = 168x178
+features[image][] = 570x320
+features[image][] = 668x598
+features[image][] = avatar
+features[image][] = frontpage_slideshow
+
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Nodes with pictures feature.
+ */
+
+include_once 'nodes_with_pictures.features.inc';

@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * Implements hook_init().
+ */
+function commerce_profile_products_init() {
+  $aliases = array();
+  $path = drupal_get_path('profile', 'commerce_profile') . '/import/product.csv';
+  $f = fopen($path, 'r'); 
+  while(!feof($f)) {   
+    $data = fgetcsv($f, 1000, ',');    
+    $images = explode(', ', $data[1]);
+    $categories = explode(', ', $data[9]);
+    $tags = explode(', ', $data[10]);
+    $c_tids = commerce_profile_products_get_category_taxonomy($categories);
+    $t_tids = commerce_profile_products_get_tag_taxonomy($tags);
+    if (!empty($data[4])) {
+      try {
+        $product_id = commerce_profile_products_create_product($data, $images);
+      }
+      catch(Exception $error) {
+        variable_set('product_error', $error);
+      }
+    }
+    if (!empty($data[8])) {
+      try {
+        commerce_profile_products_create_node($data, $product_id, $t_tids, $c_tids, $categories, $aliases);
+      }
+      catch(Exception $error) {
+        variable_set('node_error', $error);
+      }
+    }
+  }
+  $module_list = array('commerce_profile_products');
+  module_disable($module_list, FALSE);
+}
+
+/**
+ * Get tids from catigories vocabulary.
+ * @param array $categories.
+ *
+ * @return array $c_tids.
+ */
+function commerce_profile_products_get_category_taxonomy($categories) {
+  foreach ($categories as $category) {
+    $terms = taxonomy_get_term_by_name($category, 'categories');
+    foreach ($terms as $term) {
+      if (isset($term->tid)) {
+        $c_tids[] = $term->tid;
+      }
+    }
+  }
+  return $c_tids;
+}
+
+/**
+ * Get tids from tags vocabulary.
+ * @param array $categories.
+ *
+ * @return array $t_tids.
+ */
+function commerce_profile_products_get_tag_taxonomy($tags) {
+  foreach ($tags as $tag) {
+    $terms = taxonomy_get_term_by_name($tag, 'tags');
+    foreach ($terms as $term) {
+      if (isset($term->tid)) {
+        $t_tids[] = $term->tid;
+      }
+    }
+  } 
+  return $t_tids;
+}
+
+/**
+ * Create commerce product entity.
+ * @param array $data.
+ * @param array $images.
+ *
+ * @return int $product_id.
+ */
+function commerce_profile_products_create_product($data, $images) {
+  $product = entity_metadata_wrapper('commerce_product', commerce_product_new('product'));
+  $product->uid = 1;
+  $product->sku = $data[4];
+  $product->title = $data[6];
+  $product->language = LANGUAGE_NONE;
+  if (isset($data[2])) {
+    $product->commerce_price->amount = $data[2];
+  }
+  else {
+    $product->commerce_price->amount = 1000;
+  }
+  $product->commerce_price->currency_code = 'USD';
+  $product->field_description->value = $data[0];
+  $product->field_specifications->value = $data[5];
+  foreach ($images as $image) {
+    $file_path = drupal_realpath('profiles/commerce_profile/import/images/' . basename($image));
+    $file = (object)array(
+      'uid' => 1,
+      'uri' => $file_path,
+      'filename' => basename($file_path),
+      'filemime' => file_get_mimetype($file_path),
+    );
+
+    $file = file_copy($file, 'public://images/');
+
+    if ($file) {
+      $product->field_view[] = (array)$file;
+    }
+  }
+  $product->save();
+  $product_id = $product->product_id->value();
+  return $product_id;
+}
+
+/**
+ * Create node entity.
+ * @param array $data.
+ * @param int $product_id.
+ * @param array $t_tids.
+ * @param array $c_tids.
+ * @param array $categories.
+ * @param array $aliases.
+ */
+function commerce_profile_products_create_node($data, $product_id, $t_tids, $c_tids, $categories, &$aliases) {
+  $node = new stdClass();
+  $node->type = 'product';
+  node_object_prepare($node);
+  $node->title = $data[8];
+
+  $alias = 'product/';
+  foreach ($categories as $category) {
+    if ($categories[count($categories)-1] != $category) { 
+      $alias .= strtolower($category) . '-';
+    }
+    else {
+      $alias .= strtolower($category) . '/';
+    }
+  }
+  $alias .= strtolower($node->title);
+  $alias = str_replace(' ', '-', $alias);
+  if (in_array($alias, array_keys($aliases))) {
+    $new_alias = $alias . '-' . count($aliases[$alias]);
+  }
+  else {
+    $new_alias = $alias;
+  }
+  $aliases[$alias][] = $new_alias;
+  $node->path = array(
+    'alias' => $new_alias,
+    'pathauto' => FALSE,
+    'language' => 'und',
+  );
+  $node_wrapper = entity_metadata_wrapper('node', $node);
+  $node_wrapper->promote = 0;
+  $node_wrapper->field_product[] = $product_id;
+  $node_wrapper->language->set('und');
+  $node_wrapper->field_special_offer->set($data[7]);
+  foreach ($t_tids as $tag) {
+    $node_wrapper->field_tags[] = $tag;
+  }
+  foreach ($c_tids as $category) {
+    $node_wrapper->field_category[] = $category;
+  }
+  $node_wrapper->save();
+}

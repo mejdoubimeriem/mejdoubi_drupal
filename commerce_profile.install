@@ -1,0 +1,46 @@
+<?php
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function commerce_profile_install() {
+  $default_theme = 'commerce_theme';
+  $admin_theme = 'seven';
+  // Disable all themes.
+  db_update('system')
+    ->fields(array('status' => 0))
+    ->condition('type', 'theme')
+    ->execute();
+  // Enable $default_theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $default_theme)
+    ->execute();
+  // Enable $admin_theme.
+  db_update('system')
+    ->fields(array('status' => 1))
+    ->condition('type', 'theme')
+    ->condition('name', $admin_theme)
+    ->execute();
+  // Set variable to default_theme.
+  variable_set('theme_default', $default_theme);
+  variable_set('theme_' . $default_theme . '_files_directory',
+  'public://adaptivetheme/' . $default_theme . '_files');
+  // Activate admin theme when editing a node.
+  variable_set('admin_theme', $admin_theme);
+  variable_set('node_admin_theme', '1');
+  // Drop system / user blocks to ensure correct building.
+  db_delete('block')->condition('module', 'system')->execute();
+  db_delete('block')->condition('module', 'user')->execute();
+  // Update the menu router information.
+  menu_rebuild();
+  // Revert features to ensure they are all installed.
+  $features = array();
+  features_revert($features);
+  // Ignore any rebuild messages.
+  node_access_needs_rebuild(FALSE);
+  // Ignore any other install messages.
+  drupal_get_messages();
+}

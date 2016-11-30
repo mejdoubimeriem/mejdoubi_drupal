@@ -1,0 +1,11 @@
+name = Commerce profile common
+description = Add some useful functions.
+core = 7.x
+package = Custom
+dependencies[] = libraries
+; Information added by Drupal.org packaging script on 2016-06-06
+version = "7.x-1.7"
+core = "7.x"
+project = "commerce_profile"
+datestamp = "1465200097"
+
